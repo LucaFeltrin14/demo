@@ -1,8 +1,10 @@
 package zambom.aula.demo.time;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+@Service
 public class TimeService {
 
     public ResponseEntity<Time> getTime(Integer idTime) {
