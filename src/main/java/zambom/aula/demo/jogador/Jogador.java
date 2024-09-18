@@ -6,6 +6,7 @@ import zambom.aula.demo.time.Time;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document
@@ -17,7 +18,9 @@ public class Jogador {
     private String id;
     private String nome;
     private Integer idade;
-    private List<Time> times;
+    private List<Time> times = new ArrayList<>();
+
+
 
 
 

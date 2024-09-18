@@ -40,7 +40,7 @@ public class JogadorService {
 
         // Verifique se o Time existe
         ResponseEntity<Time> response = timeService.getTime(time);
-        if (response.getStatusCode().equals(HttpStatus.OK) ) {
+        if (!response.getStatusCode().equals(HttpStatus.OK) ) {
             throw new IllegalArgumentException("Time não encontrado");
         }
 
