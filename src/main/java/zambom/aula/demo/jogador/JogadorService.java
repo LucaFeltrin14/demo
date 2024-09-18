@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import zambom.aula.demo.time.Time;
 import zambom.aula.demo.time.TimeService;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class JogadorService {
 
@@ -48,6 +52,15 @@ public class JogadorService {
 
         // Retorne o jogador atualizado
         return jogador;
+    }
+
+    public List<Jogador> getJogadores(Optional<String> jogadorId) {
+        if (jogadorId.isPresent()) {
+            return Collections.singletonList(jogadorRepository.findById(jogadorId.get())
+                    .orElseThrow(() -> new IllegalArgumentException("Jogador não encontrado")));
+        } else {
+            return jogadorRepository.findAll();
+        }
     }
 
 
