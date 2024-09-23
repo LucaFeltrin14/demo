@@ -57,7 +57,7 @@ public class JogadorService {
     public List<Jogador> getJogadores(Optional<String> jogadorId) {
         if (jogadorId.isPresent()) {
             return Collections.singletonList(jogadorRepository.findById(jogadorId.get())
-                    .orElseThrow(() -> new IllegalArgumentException("Jogador não encontrado")));
+                    .orElseThrow(() -> new JogadorNaoEncontradoException("Jogador não encontrado")));
         } else {
             return jogadorRepository.findAll();
         }
